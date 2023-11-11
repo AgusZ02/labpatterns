@@ -29,7 +29,7 @@ public class PacientSymptomGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PacientSymptomGUI(Covid19Pacient p) {
+	public PacientSymptomGUI(Covid19Pacient p){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 100, 450, 300);
 		contentPane = new JPanel();
@@ -78,7 +78,7 @@ public class PacientSymptomGUI extends JFrame {
 				errorLabel.setText(" ");
 				if (new Integer(weightField.getText())<=3) {
 		    	System.out.println("Symptom added :"+(Symptom)symptomComboBox.getSelectedItem());
-
+				p.addSymptomByName(((Symptom)symptomComboBox.getSelectedItem()).getName(), Integer.parseInt(weightField.getText()));
 				//addSymptomByName ...
 				
 			} else errorLabel.setText("ERROR, Weight between [1..3]");
@@ -94,7 +94,7 @@ public class PacientSymptomGUI extends JFrame {
 				errorLabel.setText(" ");
 
 		    	System.out.println("Symptom removed :"+(Symptom)symptomComboBox.getSelectedItem());
-
+				p.removeSymptomByName(((Symptom)symptomComboBox.getSelectedItem()).getName());
 				//removeSymptomByName...
 				
 			} 
